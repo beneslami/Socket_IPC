@@ -8,3 +8,5 @@ The bind() function dictates the OS  the criteria of receiving data. In other wo
 that if the sender process (which is in the same machine as receiver) sends the data destined to socket "~/Desktop/socket",
 then such data needs to be delivered to this process
 accept() and read() system calls are blocking ones.
+
+Client:

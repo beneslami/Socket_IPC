@@ -5,7 +5,7 @@
 #include<sys/un.h>
 #include<unistd.h>
 
-#define SOCEKT_NAME "~/Desktop/socket"
+#define SOCEKT_NAME "/tmp/socket"
 #define BUFFER_SIZE 128
 
 int main(int argc, char **argv){
