@@ -10,3 +10,4 @@ then such data needs to be delivered to this process
 accept() and read() system calls are blocking ones.
 
 -------------------
+The main drawback of the server.c is that it queues more than one incoming client request. So in Multiplexer_server.c this issue is handled by using select() system call. The data structure df_set is used to keep track of all simultaneous incoming requests from clients.
