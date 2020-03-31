@@ -96,7 +96,6 @@ int main(int argc, char **argv){
 
     refresh_fd_set(&readfds); /* copy the entire monitored FDs to readfds */
     printf("waiting of accept() system call\n");
-    printf("$\n");
     select(get_max_fd()+1, &readfds, NULL, NULL, NULL);/* server process gets blocked here. OS keeps the process blocked
     until the connection initiation request or data requests arrives on any of the FDs in the readfds.
     */
@@ -128,7 +127,6 @@ int main(int argc, char **argv){
 
       for(int i=2; i< MAX_CLIENT_SUPPORTED; i++){
         if(FD_ISSET(monitored_fd_set[i], &readfds)){
-          printf("1\n");
           comm_socket_fd = monitored_fd_set[i];
           memset(buffer, 0 , BUFFER_SIZE);
           ret = read(comm_socket_fd, buffer, sizeof(int)); //returns the number of bytes recieved
@@ -153,13 +151,11 @@ int main(int argc, char **argv){
             break;
           }
           client_result[i] += data;
-          printf("%d\n", client_result[i]);
           break;
           /* substitute any operation here */
         }
       }
     }
-    printf("#\n");
   }
 
   close(connection_socket);
