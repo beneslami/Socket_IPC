@@ -9,15 +9,8 @@
 #define BUFFER_SIZE 128
 
 int main(int argc, char **argv){
+
   struct sockaddr_un name;
-
-  #if 0
-    struct sockaddr_un {
-      sa_family_t sun_family;    /*AF_UNIX*/
-      char sun_path[100];        /*path name*/
-    };
-  #endif
-
   int ret;
   int connection_socket;
   int data_socket;
@@ -25,8 +18,7 @@ int main(int argc, char **argv){
   int data;
   char buffer[BUFFER_SIZE];
 
-  /* In case the program exited inadvertently on the last run,
-      remove the socket */
+  /* In case the program exited inadvertently on the last run,remove the socket */
   unlink(SOCEKT_NAME); // A precaution to avoid using two sockets with the same name
 
   //create master socket

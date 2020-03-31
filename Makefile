@@ -1,7 +1,7 @@
 TARGET: exe
 exe:
-	gcc -g server.c -o server
-	gcc -g client.c -o client
+	gcc Multiplexer_server.c -o server
+	gcc client.c -o client
 
 clean:
 	rm -rf server client client.dSYM server.dSYM
